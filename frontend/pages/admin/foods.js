@@ -39,10 +39,10 @@ const foods = ({ result }) => {
     formData.append("file", selectedImage);
     formData.append(
       "upload_preset",
-      `${process.env.NEXT_PUBLIC_UPLOAD_PRESET}`
+      `default-preset`
     );
-    formData.append("cloud_name", `${process.env.NEXT_PUBLIC_CLOUD_NAME}`);
-    const res = await fetch(`${process.env.NEXT_PUBLIC_CLOUDINARY_API}`, {
+    formData.append("cloud_name", `restaurant2`);
+    const res = await fetch("https://api.cloudinary.com/v1_1/restaurant2/image/upload", {
       method: "POST",
       body: formData,
     });

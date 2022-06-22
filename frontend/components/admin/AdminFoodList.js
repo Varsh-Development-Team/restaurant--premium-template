@@ -15,7 +15,7 @@ const AdminFoodList = ({ item }) => {
   const handleDelete = async () => {
     const token = JSON.parse(window.localStorage.getItem("token"));
     await axios
-      .delete(`${process.env.NEXT_PUBLIC_BASE_URL}/food/${item._id}`, {
+      .delete(`http://localhost:3010/api/food/${item._id}`, {
         headers: { Authorization: token },
       })
       .then((data) => {
@@ -39,10 +39,10 @@ const AdminFoodList = ({ item }) => {
     formData.append("file", selectedImage);
     formData.append(
       "upload_preset",
-      `${process.env.NEXT_PUBLIC_UPLOAD_PRESET}`
+      `default-preset`
     );
-    formData.append("cloud_name", `${process.env.NEXT_PUBLIC_CLOUD_NAME}`);
-    const res = await fetch(`${process.env.NEXT_PUBLIC_CLOUDINARY_API}`, {
+    formData.append("cloud_name", `restaurant2`);
+    const res = await fetch(`https://api.cloudinary.com/v1_1/restaurant2/image/upload`, {
       method: "POST",
       body: formData,
     });
@@ -50,7 +50,7 @@ const AdminFoodList = ({ item }) => {
     const data = await res.json();
     await axios
       .put(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/food/${item._id}`,
+        `http://localhost:3010/api/food/${item._id}`,
         {
           name,
           category,

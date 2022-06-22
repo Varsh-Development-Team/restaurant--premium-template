@@ -9,7 +9,7 @@ const AdminUsersList = ({ item }) => {
   const handleDelete = async () => {
     const token = JSON.parse(window.localStorage.getItem("token"));
     await axios
-      .delete(`${process.env.NEXT_PUBLIC_BASE_URL}/user/${item._id}`, {
+      .delete(`http://localhost:3010/api/user/${item._id}`, {
         headers: { Authorization: token },
       })
       .then((data) => {
