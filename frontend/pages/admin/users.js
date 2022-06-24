@@ -15,7 +15,7 @@ const users = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       await axios
-        .get(`${process.env.NEXT_PUBLIC_BASE_URL}/users`)
+        .get(`http://3.238.183.53:5030/api/users`)
         .then((data) => {
           setAllUsers(data.data.users);
         });

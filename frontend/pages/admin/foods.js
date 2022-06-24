@@ -51,7 +51,7 @@ const foods = ({ result }) => {
 
     await axios
       .post(
-        `http://localhost:3010/api/food/new`,
+        `http://3.238.183.53:5030/api/food/new`,
         {
           name,
           category,

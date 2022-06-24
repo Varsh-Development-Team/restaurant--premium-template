@@ -27,7 +27,7 @@ const login = () => {
     e.preventDefault();
     setLoading(true);
     await axios
-      .post(`http://localhost:3010/api/login`, {
+      .post(`http://3.238.183.53:5030/api/login`, {
         email,
         password,
       })

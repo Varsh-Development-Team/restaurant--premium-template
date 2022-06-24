@@ -27,7 +27,7 @@ const order = () => {
     e.preventDefault();
     setLoading(true);
     await axios
-      .post(`http://localhost:3010/api/order/new`, {
+      .post(`http://3.238.183.53:5030/api/order/new`, {
         name,
         email,
         foodName,
